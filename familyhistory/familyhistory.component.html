@@ -1,0 +1,941 @@
+<!-- family-history.component.html -->
+<div>
+  <h2>Family Details</h2>
+
+  <div>
+    <h3>A. Father's Details</h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Occupation</th>
+        <th>Income</th>
+      </tr>
+      <tr>
+        <td><input type="text" [(ngModel)]="familyDetails.father.name" /></td>
+        <td><input type="number" [(ngModel)]="familyDetails.father.age" /></td>
+        <td>
+          <select [(ngModel)]="familyDetails.father.occupation">
+            <option value="doctor">Doctor</option>
+            <option value="labour">Labour</option>
+            <option value="engineer">Engineer</option>
+            <option value="teacher">Teacher</option>
+            <option value="anyother">Any Other</option>
+          </select>
+          <!-- Add text box for "Any Other" -->
+          <input
+            *ngIf="familyDetails.father.occupation === 'anyother'"
+            type="text"
+            placeholder="Specify Other Occupation"
+          />
+        </td>
+        <td>
+          <input type="number" [(ngModel)]="familyDetails.father.income" />
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <h3>B. Mother's Details</h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Occupation</th>
+        <th>Income</th>
+      </tr>
+      <tr>
+        <td><input type="text" [(ngModel)]="familyDetails.mother.name" /></td>
+        <td><input type="number" [(ngModel)]="familyDetails.mother.age" /></td>
+        <td>
+          <select [(ngModel)]="familyDetails.mother.occupation">
+            <option value="doctor">Doctor</option>
+            <option value="labour">Labour</option>
+            <option value="engineer">Engineer</option>
+            <option value="teacher">Teacher</option>
+            <option value="anyother">Any Other</option>
+          </select>
+          <!-- Add text box for "Any Other" -->
+          <input
+            *ngIf="familyDetails.mother.occupation === 'anyother'"
+            type="text"
+            placeholder="Specify Other Occupation"
+          />
+        </td>
+        <td>
+          <input type="number" [(ngModel)]="familyDetails.mother.income" />
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- family-history.component.html -->
+  <div>
+    <h2>Family History</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Relationship</th>
+          <th>Education</th>
+          <th>Age</th>
+          <th>Occupation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Iterate through familyMembers array for siblings -->
+        <tr *ngFor="let sibling of familyMembers; let i = index">
+          <!-- Relationship Dropdown -->
+          <td>
+            <select [(ngModel)]="familyMembers[i].relationship">
+              <option value="Select Relationship" disabled selected>
+                Select Relationship
+              </option>
+              <option value="spouse">Spouse</option>
+              <option value="child">Child</option>
+              <option value="parent">Parent</option>
+            </select>
+          </td>
+
+          <!-- Education Dropdown -->
+          <td>
+            <select [(ngModel)]="familyMembers[i].education">
+              <option value="Select Education" disabled selected>
+                Select Education
+              </option>
+              <option value="masters">Masters</option>
+              <option value="high_degree">High Degree</option>
+              <option value="bachelor_degree">Bachelor Degree</option>
+            </select>
+          </td>
+          <!-- Age Input -->
+          <td>
+            <input type="number" [(ngModel)]="familyMembers[i].age" />
+          </td>
+
+          <!-- Occupation Dropdown -->
+          <td>
+            <select [(ngModel)]="familyMembers[i].occupation">
+              <option value="Select Occupation" disabled selected>
+                Select Occupation
+              </option>
+              <option value="doctor">Doctor</option>
+              <option value="labour">Labour</option>
+              <option value="engineer">Engineer</option>
+              <option value="teacher">Teacher</option>
+              <option value="anyother">Any Other</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Add Sibling Button -->
+    <button (click)="addSibling()">Add Sibling</button>
+  </div>
+  <!-- family-history.component.html -->
+  <div>
+    <h2>In Case of Parents' Death</h2>
+
+    <div>
+      <label>Father's Death:</label>
+      <input type="checkbox" [(ngModel)]="fatherDeath.yes" />
+      <label>Deceased</label>
+
+      <!-- Additional input for age if father's death is selected -->
+      <ng-container *ngIf="fatherDeath.yes">
+        <br />
+        <label>Age at Death:</label>
+        <input type="number" [(ngModel)]="fatherDeath.age" />
+      </ng-container>
+    </div>
+
+    <div>
+      <label>Mother's Death:</label>
+      <input type="checkbox" [(ngModel)]="motherDeath.yes" />
+      <label>Deceased</label>
+
+      <!-- Additional input for age if mother's death is selected -->
+      <ng-container *ngIf="motherDeath.yes">
+        <br />
+        <label>Age at Death:</label>
+        <input type="number" [(ngModel)]="motherDeath.age" />
+      </ng-container>
+    </div>
+  </div>
+
+  <div>
+    <h2>Did you experience the following before the age of 15 years?</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situations</th>
+          <th>Present</th>
+          <th>Absent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A - Poverty/severe debts of parents</td>
+          <td>
+            <input
+              type="radio"
+              name="poverty"
+              [(ngModel)]="poverty"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="poverty"
+              [(ngModel)]="poverty"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>B - Early parental loss</td>
+          <td>
+            <input
+              type="radio"
+              name="parentalLoss"
+              [(ngModel)]="parentalLoss"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="parentalLoss"
+              [(ngModel)]="parentalLoss"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>C - Extra marital affairs of parents</td>
+          <td>
+            <input
+              type="radio"
+              name="affairs"
+              [(ngModel)]="affairs"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="affairs"
+              [(ngModel)]="affairs"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>D - Broken home/single parenting</td>
+          <td>
+            <input
+              type="radio"
+              name="brokenHome"
+              [(ngModel)]="brokenHome"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="brokenHome"
+              [(ngModel)]="brokenHome"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>E - Violence</td>
+          <td>
+            <input
+              type="radio"
+              name="violence"
+              [(ngModel)]="violence"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="violence"
+              [(ngModel)]="violence"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>F - Sexuality abused by others</td>
+          <td>
+            <input
+              type="radio"
+              name="sexualityAbuse"
+              [(ngModel)]="sexualityAbuse"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="sexualityAbuse"
+              [(ngModel)]="sexualityAbuse"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>G - None</td>
+          <td>
+            <input
+              type="radio"
+              name="none"
+              [(ngModel)]="none"
+              value="present"
+            />
+          </td>
+          <td>
+            <input type="radio" name="none" [(ngModel)]="none" value="absent" />
+          </td>
+        </tr>
+        <tr>
+          <td>H - Any other</td>
+          <td>
+            <input
+              type="radio"
+              name="anyOther"
+              [(ngModel)]="anyOther"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="anyOther"
+              [(ngModel)]="anyOther"
+              value="absent"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <h2>Childhood / Adolescence (before the age of 15 years)</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Behaviour Problems identified</th>
+          <th>Present</th>
+          <th>Absent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A - Running Away from home</td>
+          <td>
+            <input
+              type="radio"
+              name="runningAway"
+              [(ngModel)]="runningAway"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="runningAway"
+              [(ngModel)]="runningAway"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>B - Frequent physical fights and violence</td>
+          <td>
+            <input
+              type="radio"
+              name="physicalFights"
+              [(ngModel)]="physicalFights"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="physicalFights"
+              [(ngModel)]="physicalFights"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>C - Destruction of others' property</td>
+          <td>
+            <input
+              type="radio"
+              name="propertyDestruction"
+              [(ngModel)]="propertyDestruction"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="propertyDestruction"
+              [(ngModel)]="propertyDestruction"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>D - Stealing</td>
+          <td>
+            <input
+              type="radio"
+              name="stealing"
+              [(ngModel)]="stealing"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="stealing"
+              [(ngModel)]="stealing"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>E - Scholastic backwardness</td>
+          <td>
+            <input
+              type="radio"
+              name="scholasticBackwardness"
+              [(ngModel)]="scholasticBackwardness"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="scholasticBackwardness"
+              [(ngModel)]="scholasticBackwardness"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>F - Experimenting with drugs/alcohol</td>
+          <td>
+            <input
+              type="radio"
+              name="drugAlcoholExperiment"
+              [(ngModel)]="drugAlcoholExperiment"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="drugAlcoholExperiment"
+              [(ngModel)]="drugAlcoholExperiment"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>G - Gambling</td>
+          <td>
+            <input
+              type="radio"
+              name="gambling"
+              [(ngModel)]="gambling"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="gambling"
+              [(ngModel)]="gambling"
+              value="absent"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>H - Any other</td>
+          <td>
+            <input
+              type="radio"
+              name="otherBehaviour"
+              [(ngModel)]="otherBehaviour"
+              value="present"
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="otherBehaviour"
+              [(ngModel)]="otherBehaviour"
+              value="absent"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <h3>Prior Treatment for Addiction</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Place of Treatment</th>
+          <th>Treatment Period (days)</th>
+          <th>Sobriety Period (days)</th>
+          <th>Reason for Sobriety</th>
+          <th>Reason for Relapse</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let treatment of priorTreatment; let i = index">
+          <td><input type="date" [(ngModel)]="treatment.year" /></td>
+          <td>
+            <select [(ngModel)]="treatment.place">
+              <option *ngFor="let place of placesOfTreatment" [value]="place">
+                {{ place }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="treatment.treatmentPeriod" />
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="treatment.sobrietyPeriod" />
+          </td>
+          <td>
+            <select [(ngModel)]="treatment.sobrietyReason">
+              <option *ngFor="let reason of sobrietyReasons" [value]="reason">
+                {{ reason }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="treatment.relapseReason">
+              <option *ngFor="let reason of relapseReasons" [value]="reason">
+                {{ reason }}
+              </option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="addTreatment()">Add Treatment</button>
+  </div>
+  <h2>
+    Has there been anyone in your family who has suffered from any of these
+    problems?
+  </h2>
+  <table border="1" id="familyhistory">
+    <thead>
+      <th>Problems</th>
+      <th colspan="4">Parents and Siblings</th>
+      <th colspan="4">Wife / Children</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Major Depression</td>
+        <td>Yes</td>
+        <td>Relationship</td>
+        <td>No</td>
+        <td>Dont know</td>
+        <td>Yes</td>
+        <td>Relationship</td>
+        <td>No</td>
+        <td>Dont know</td>
+      </tr>
+      <tr>
+        <td>Suicide/Attempted Suicide</td>
+        <td>
+          <input
+            type="checkbox"
+            name="suicideParents"
+            [(ngModel)]="suicideParents"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="suicideRelationshipParents"
+            [(ngModel)]="suicideRelationshipParents"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="suicideNoParents"
+            [(ngModel)]="suicideNoParents"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="suicideDontKnowParents"
+            [(ngModel)]="suicideDontKnowParents"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="suicideChildren"
+            [(ngModel)]="suicideChildren"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="suicideRelationshipChildren"
+            [(ngModel)]="suicideRelationshipChildren"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="suicideNoChildren"
+            [(ngModel)]="suicideNoChildren"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="suicideDontKnowChildren"
+            [(ngModel)]="suicideDontKnowChildren"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Psychiatric Illnesses</td>
+        <td>
+          <input
+            type="checkbox"
+            name="psychiatricParents"
+            [(ngModel)]="psychiatricParents"
+            value="yes"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="psychiatricRelationshipParents"
+            [(ngModel)]="psychiatricRelationshipParents"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="psychiatricNoParents"
+            [(ngModel)]="psychiatricNoParents"
+            value="no"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="psychiatricDontKnowParents"
+            [(ngModel)]="psychiatricDontKnowParents"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="psychiatricChildren"
+            [(ngModel)]="psychiatricChildren"
+            value="yes"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="psychiatricRelationshipChildren"
+            [(ngModel)]="psychiatricRelationshipChildren"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="psychiatricNoChildren"
+            [(ngModel)]="psychiatricNoChildren"
+            value="no"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="psychiatricDontKnowChildren"
+            [(ngModel)]="psychiatricDontKnowChildren"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>Alcohol dependence</td>
+        <td>
+          <input
+            type="checkbox"
+            name="alcoholDependenceParents"
+            [(ngModel)]="alcoholDependenceParents"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="alcoholDependenceRelationshipParents"
+            [(ngModel)]="alcoholDependenceRelationshipParents"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="alcoholDependenceNoParents"
+            [(ngModel)]="alcoholDependenceNoParents"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="alcoholDependenceDontKnowParents"
+            [(ngModel)]="alcoholDependenceDontKnowParents"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="alcoholDependenceChildren"
+            [(ngModel)]="alcoholDependenceChildren"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="alcoholDependenceRelationshipChildren"
+            [(ngModel)]="alcoholDependenceRelationshipChildren"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="alcoholDependenceNoChildren"
+            [(ngModel)]="alcoholDependenceNoChildren"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="alcoholDependenceDontKnowChildren"
+            [(ngModel)]="alcoholDependenceDontKnowChildren"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Drug dependence</td>
+        <td>
+          <input type="checkbox" name="drugParents" [(ngModel)]="drugParents" />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="drugRelationshipParents"
+            [(ngModel)]="drugRelationshipParents"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="drugNoParents"
+            [(ngModel)]="drugNoParents"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="drugDontKnowParents"
+            [(ngModel)]="drugDontKnowParents"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="drugChildren"
+            [(ngModel)]="drugChildren"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="drugRelationshipChildren"
+            [(ngModel)]="drugRelationshipChildren"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="drugNoChildren"
+            [(ngModel)]="drugNoChildren"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="drugDontKnowChildren"
+            [(ngModel)]="drugDontKnowChildren"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Any Other</td>
+        <td>
+          <input type="checkbox" name="anyParents" [(ngModel)]="anyParents" />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="anyRelationshipParents"
+            [(ngModel)]="anyRelationshipParents"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="anyNoParents"
+            [(ngModel)]="anyNoParents"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="anyDontKnowParents"
+            [(ngModel)]="anyDontKnowParents"
+          />
+        </td>
+        <td>
+          <input type="checkbox" name="anyChildren" [(ngModel)]="anyChildren" />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="anyRelationshipChildren"
+            [(ngModel)]="anyRelationshipChildren"
+          />
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            name="anyNoChildren"
+            [(ngModel)]="anyNoChildren"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="anyDontKnowChildren"
+            [(ngModel)]="anyDontKnowChildren"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+
+  <h2>Adjustment Patterns :</h2>
+  <table>
+    <tr>
+      <th>Relationship with family members</th>
+      <th>Parents</th>
+      <th>Siblings</th>
+      <th>Spouse</th>
+      <th>Children</th>
+    </tr>
+    <tr>
+      <td>No family(Dead)</td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDeadParent" /></td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDeadSibling" /></td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDeadSpouse" /></td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDeadChildren" /></td>
+    </tr>
+    <tr>
+      <td>Disowned by family/mutual rejection</td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDead2" /></td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDead3" /></td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDead4" /></td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDead5" /></td>
+    </tr>
+    <tr>
+      <td>Mixed of indifferent feelings</td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDead6" /></td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDead7" /></td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDead8" /></td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDead9" /></td>
+    </tr>
+    <tr>
+      <td>Usually friendly miner conflicts</td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDead10" /></td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDead11" /></td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDead12" /></td>
+      <td><input type="checkbox" [(ngModel)]="noFamilyDead13" /></td>
+    </tr>
+    <tr>
+      <td>Supportive</td>
+      <td colspan="4">
+        <input type="text" class="t5" [(ngModel)]="noFamilyDead14" />
+      </td>
+    </tr>
+    <tr>
+      <td>Not applicable</td>
+      <td colspan="4">
+        <input type="text" class="t5" [(ngModel)]="noFamilyDead15" />
+      </td>
+    </tr>
+  </table>
+  <br />
+  <h2>Family damages as seen by the counselor</h2>
+  <form>
+    <label for="mildDamage">Mild:</label>
+    <input
+      type="text"
+      id="mildDamage"
+      name="mildDamage"
+      [(ngModel)]="mildDamage"
+    /><br />
+
+    <label for="moderateDamage">Moderate:</label>
+    <input
+      type="text"
+      id="moderateDamage"
+      name="moderateDamage"
+      [(ngModel)]="moderateDamage"
+    /><br />
+
+    <label for="severeDamage">Severe:</label>
+    <input
+      type="text"
+      id="severeDamage"
+      name="severeDamage"
+      [(ngModel)]="severeDamage"
+    /><br />
+  </form>
+
+  <button id="Submit" (click)="submitForm()">Submit</button>
+  <button id="print" (click)="printPage()">Print</button>
+</div>

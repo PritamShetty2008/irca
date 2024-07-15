@@ -1,0 +1,26 @@
+/* header.component.css */
+
+header {
+  background-color: #3498db;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #0b0b0b;
+  background-color: #3498db;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: rgb(93, 197, 235);
+}

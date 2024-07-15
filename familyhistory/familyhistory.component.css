@@ -1,0 +1,361 @@
+/* Apply general styles to the container */
+#div1 {
+  border: 1px solid #181717;
+  border-radius: 5px;
+  padding: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+div {
+  margin: 20px;
+}
+
+/* Style headings */
+h2,
+h3 {
+  color: #333;
+}
+
+/* Style labels and input fields */
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-left: 12px;
+}
+
+input,
+select {
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-left: 3px;
+  padding: 5px;
+}
+
+/* Style checkboxes */
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Style the dropdown options */
+select {
+  width: fit-content;
+  padding: 8px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+/* Style the dropdown arrow */
+select::-ms-expand,
+select::-ms-expand {
+  display: none;
+}
+
+/* Customize appearance of options */
+select option {
+  padding: 5px;
+}
+
+/* Highlight selected option */
+select option:checked {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Style the "Specify Other Occupation" input when shown */
+select[value="anyother"] + input[type="text"] {
+  display: block;
+}
+
+/* Style the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Style the sibling form row */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Hide the "Specify Other Occupation" input initially */
+input[type="text"] {
+  display: inline-block;
+}
+
+/* Show the "Specify Other Occupation" input when needed */
+select[value="anyother"] + input[type="text"] {
+  display: inline-block;
+  width: fit-content;
+}
+
+/* Style for the "Add Sibling" button */
+#addSibling {
+  background-color: #4caf50; /* Green background color */
+  color: white; /* White text color */
+  padding: 8px 15px; /* Padding for better appearance */
+  font-size: 16px; /* Font size */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Cursor on hover */
+  margin-top: 5px;
+  margin-left: 45%;
+}
+
+/* Hover effect for the button */
+#addSibling:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+/* Style the tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: hsl(204, 70%, 53%); /* Darker color for table heading */
+  color: white; /* Text color for table heading */
+}
+
+/* Specific width for the columns in the first table */
+#childhoodExperience th:first-child,
+#childhoodExperience td:first-child {
+  width: 70%;
+}
+
+#childhoodExperience th:not(:first-child),
+#childhoodExperience td:not(:first-child) {
+  width: 15%;
+}
+
+/* Specific width for the columns in the second table */
+#childhoodBehaviour th:first-child,
+#childhoodBehaviour td:first-child {
+  width: 70%;
+}
+
+#childhoodBehaviour th:not(:first-child),
+#childhoodBehaviour td:not(:first-child) {
+  width: 15%;
+}
+
+/* Style the radio buttons */
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Style the "Present" and "Absent" radio buttons */
+.present-absent td {
+  text-align: center;
+}
+
+/* Style the "Describe your childhood/teenage days" section */
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+/* Style the "Childhood/Adolescence (before the age of 15 years)" tables */
+#childhoodBehaviors,
+#adolescenceBehaviors {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#childhoodBehaviors th,
+#adolescenceBehaviors th,
+#childhoodBehaviors td,
+#adolescenceBehaviors td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Add specific styling for the text inputs in the last two rows of the tables */
+#childhoodBehaviors .t8,
+#adolescenceBehaviors .t8 {
+  margin: 0;
+}
+
+/* Add margin to checkboxes for better spacing */
+#childhoodBehaviors input[type="radio"],
+#adolescenceBehaviors input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Style the "Health status of family" section */
+#familyhistory th,
+#familyhistory td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+#familyhistory th {
+  background-color: hsl(204, 70%, 53%); /* Darker color for table heading */
+  color: white; /* Text color for table heading */
+}
+
+/* Style the "Adjustment Patterns" section */
+#relStatus th,
+#relStatus td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+#relStatus th {
+  background-color: hsl(204, 70%, 53%); /* Darker color for table heading */
+  color: white; /* Text color for table heading */
+}
+
+/* Style the "Family damages as seen by the counselor" section */
+#family-damages-form th {
+  background-color: hsl(204, 70%, 53%); /* Darker color for table heading */
+  color: white; /* Text color for table heading */
+}
+
+#relStatus input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+#relStatus .t5,
+#relStatus .t6 {
+  margin: 8px;
+  width: 95%;
+}
+
+/* Style the "Family damages as seen by the counselor" section */
+form {
+  margin-top: 10px;
+}
+
+form label {
+  display: inline-block;
+  width: 100px;
+}
+
+form input[type="text"] {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+/* Style the "Prior Treatment for Addiction" section */
+#addTreatmentForm {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#treatmentTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+/* Style the "Prior Treatment for Addiction" section */
+#treatmentTable th,
+#treatmentTable td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+#treatmentTable th {
+  background-color: hsl(204, 70%, 53%); /* Darker color for table heading */
+  color: white; /* Text color for table heading */
+}
+
+#treatmentTable input[type="date"],
+#treatmentTable input[type="number"],
+#treatmentTable select {
+  width: 90%;
+  padding: 8px;
+}
+
+#addTreatment {
+  background-color: #4caf50; /* Green background color */
+  color: white; /* White text color */
+  padding: 8px 15px; /* Padding for better appearance */
+  font-size: 16px; /* Font size */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Cursor on hover */
+  margin-top: 5px;
+  margin-left: 45%;
+}
+
+#addTreatment:hover {
+  background-color: #45a049;
+}
+
+/* Style the "Submit" button */
+#Submit {
+  background-color: #4caf50; /* Green background color */
+  color: white; /* White text color */
+  padding: 8px 15px; /* Padding for better appearance */
+  font-size: 16px; /* Font size */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Cursor on hover */
+  margin-top: 5px;
+  margin-left: 47.2%;
+}
+
+#Submit:hover {
+  background-color: #45a049;
+}
+
+#print {
+  background-color: #3037b7; /* Green background color */
+  color: white; /* White text color */
+  padding: 8px 15px; /* Padding for better appearance */
+  font-size: 16px; /* Font size */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Cursor on hover */
+  margin-top: 5px;
+  margin-left: 45%;
+}
+.main_heading {
+  padding: 20px;
+  background-color: #3498db;
+  color: white;
+}
+
+#print:hover {
+  background-color: #3e46d7;
+}
+
+@media print {
+  input,
+  select {
+    border: none;
+  }
+}

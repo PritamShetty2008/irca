@@ -1,0 +1,516 @@
+<br />
+<h1 class="main_heading" style="text-align: center">Medical History</h1>
+<br />
+<label>Name:</label>
+<input type="text" size="40" [(ngModel)]="name" />
+<label>Age:</label>
+<input type="text" size="5" [(ngModel)]="age" />
+<label>Date of registration:</label>
+<input type="text" size="20" [(ngModel)]="registration" />
+<div class="borderdesign1">
+  <div class="borderdesign2">
+    <table
+      border=" 1px solid black"
+      height="500px"
+      width="10%"
+      style="width: 100%; max-width: 100px"
+    >
+      <tr>
+        <th>Drug</th>
+        <th>Age of first use</th>
+        <th>Years of use</th>
+        <th>Years of excessive use</th>
+        <th>Specific type of Drugs</th>
+        <th>Route of administration</th>
+        <th>Frequency of use in the last 30 days</th>
+        <th>Quantity used in the last 30 days</th>
+        <th>Past use if any</th>
+      </tr>
+      <tr>
+        <td>
+          Depressants
+          <select [(ngModel)]="selectedDrug" (change)="updateSpecificTypes()">
+            <option>Select</option>
+            <option>Alcohol</option>
+            <option>Tranquilizers</option>
+            <option>Sedatives</option>
+            <option>Tobacco</option>
+            <option>Panmasala</option>
+          </select>
+        </td>
+        <td>
+          <input
+            type="text"
+            [(ngModel)]="ageof"
+            value=""
+            style="border: none"
+            size="2"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            value=""
+            [(ngModel)]="yearsof"
+            style="border: none"
+            size="2"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            value=""
+            [(ngModel)]="excessive"
+            style="border: none"
+          />
+        </td>
+        <td>
+          <select [(ngModel)]="selectedSpecificType">
+            <option *ngFor="let type of specificTypes" [value]="type">
+              {{ type }}
+            </option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option value="default" [(ngModel)]="route" hidden>Select</option>
+            <option value="Inhaling">Inhaling</option>
+            <option value="Consuming">Consuming</option>
+            <option value="Injecting">Injecting</option>
+            <option value="Topical">Topical</option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option value="default" [(ngModel)]="frequency" hidden>
+              Select
+            </option>
+            <option value="Morning">Morning</option>
+            <option value="Evening">Evening</option>
+            <option value="Night">Night</option>
+            <option value="Wholeday">Whole-day</option>
+          </select>
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="quantity"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="past"
+            value=""
+            style="border: none"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <b>Narcotic Analgesics</b><br />
+          <select [(ngModel)]="selectedDrug1" (change)="updateSpecificTypes1()">
+            <option>Select</option>
+            <option>Opium</option>
+            <option>Heroin</option>
+            <option>Morphine</option>
+            <option>Codeine</option>
+            <option>Pentasozine</option>
+            <option>Buprenorphine</option>
+          </select>
+        </td>
+
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="ageof1"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="yearsof1"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="excessive1"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <select [(ngModel)]="selectedSpecificType1">
+            <option *ngFor="let type of specificTypes1" [value]="type">
+              {{ type }}
+            </option>
+          </select>
+        </td>
+        <td>
+          <select [(ngModel)]="route1">
+            <option value="default" hidden>Select</option>
+            <option value="Inhaling">Inhaling</option>
+            <option value="Consuming">Consuming</option>
+            <option value="Injecting">Injecting</option>
+            <option value="Topical">Topical</option>
+          </select>
+        </td>
+        <td>
+          <select [(ngModel)]="frequency1">
+            <option value="default" hidden>Select</option>
+            <option value="Moening">Morning</option>
+            <option value="Evening">Evening</option>
+            <option value="Night">Night</option>
+            <option value="Wholeday">Whole-day</option>
+          </select>
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="quantity1"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            value=""
+            [(ngModel)]="past1"
+            style="border: none"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <b>Cannabis</b><br />
+          <select [(ngModel)]="selectedDrug2" (change)="updateSpecificTypes2()">
+            <option>Select</option>
+            <option>Ganja</option>
+            <option>Bhang</option>
+          </select>
+        </td>
+
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="ageof2"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="yearsof2"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="excessive2"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <select [(ngModel)]="selectedSpecificType2">
+            <option *ngFor="let type of specificTypes2" [value]="type">
+              {{ type }}
+            </option>
+          </select>
+        </td>
+        <td>
+          <select [(ngModel)]="route2">
+            <option value="default" hidden>Select</option>
+            <option value="Inhaling">Inhaling</option>
+            <option value="Consuming">Consuming</option>
+            <option value="Injecting">Injecting</option>
+            <option value="Topical">Topical</option>
+          </select>
+        </td>
+        <td>
+          <select [(ngModel)]="frequency">
+            <option value="default" hidden>Select</option>
+            <option value="Morning">Morning</option>
+            <option value="Evening">Evening</option>
+            <option value="Night">Night</option>
+            <option value="Whole-day">Whole-day</option>
+          </select>
+        </td>
+        <td>
+          <input
+            [(ngModel)]="quantity2"
+            type="number"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="past2"
+            value=""
+            style="border: none"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <b>Hallucinogens</b><br />
+          <select [(ngModel)]="selectedDrug3" (change)="updateSpecificTypes3()">
+            <option>Select</option>
+            <option>LSD</option>
+            <option>PCP</option>
+          </select>
+        </td>
+
+        <td>
+          <input
+            [(ngModel)]="ageof3"
+            type="number"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="yearsof3"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="excessive3"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <select [(ngModel)]="selectedSpecificType3">
+            <option *ngFor="let type of specificTypes3" [value]="type">
+              {{ type }}
+            </option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option [(ngModel)]="route3" value="default" hidden>Select</option>
+            <option value="Inhaling">Inhaling</option>
+            <option value="Consuming">Consuming</option>
+            <option value="Injecting">Injecting</option>
+            <option value="Topical">Topical</option>
+          </select>
+        </td>
+        <td>
+          <select [(ngModel)]="frequency3">
+            <option value="default" hidden>Select</option>
+            <option value="Morning">Morning</option>
+            <option value="Evening">Evening</option>
+            <option value="Night">Night</option>
+            <option value="Whole-day">Whole-day</option>
+          </select>
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="quantity3"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="past3"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>
+          <b>Inhalants</b><br />
+          <select [(ngModel)]="selectedDrug4" (change)="updateSpecificTypes4()">
+            <option>Select</option>
+            <option>Petrol</option>
+            <option>Glue</option>
+            <option>Whitener</option>
+            <option>Grease</option>
+            <option>Thinner</option>
+            <option>NailPolish</option>
+          </select>
+        </td>
+
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="ageof4"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="yearsof4"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="excessive4"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <select [(ngModel)]="selectedSpecificType4">
+            <option *ngFor="let type of specificTypes4" [value]="type">
+              {{ type }}
+            </option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option value="default" [(ngModel)]="route4" hidden>Select</option>
+            <option value="Inhaling">Inhaling</option>
+            <option value="Consuming">Consuming</option>
+            <option value="Injecting">Injecting</option>
+            <option value="Topical">Topical</option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option [(ngModel)]="frequency4" value="default" hidden>
+              Select
+            </option>
+            <option value="Morning">Morning</option>
+            <option value="Evening">Evening</option>
+            <option value="Night">Night</option>
+            <option value="Whole-day">Whole-day</option>
+          </select>
+        </td>
+        <td>
+          <input
+            [(ngModel)]="quantity4"
+            type="number"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="past4"
+            value=""
+            style="border: none"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <b>Substance not classified</b><br />
+          <select [(ngModel)]="selectedDrug5" (change)="updateSpecificTypes5()">
+            <option>Select</option>
+            <option>Cough</option>
+            <option>AntiHistemine</option>
+            <option>AntiDepressant</option>
+            <option>AntiPsychotic</option>
+            <option>Smoking</option>
+            <option>Chewing</option>
+          </select>
+        </td>
+
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="ageof5"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="yearsof5"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="excessive5"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <select [(ngModel)]="selectedSpecificType5">
+            <option *ngFor="let type of specificTypes5" [value]="type">
+              {{ type }}
+            </option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option value="default" [(ngModel)]="route5" hidden>Select</option>
+            <option value="Inhaling">Inhaling</option>
+            <option value="Consuming">Consuming</option>
+            <option value="Injecting">Injecting</option>
+            <option value="Topical">Topical</option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option value="default" [(ngModel)]="frequency5" hidden>
+              Select
+            </option>
+            <option value="Morning">Morning</option>
+            <option value="Evening">Evening</option>
+            <option value="Night">Night</option>
+            <option value="Whole-day">Whole-day</option>
+          </select>
+        </td>
+        <td>
+          <input
+            [(ngModel)]="quantity5"
+            type="number"
+            value=""
+            style="border: none"
+          />
+        </td>
+        <td>
+          <input
+            [(ngModel)]="past5"
+            type="number"
+            value=""
+            style="border: none"
+          />
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<button (click)="submitForm()">Submit</button>

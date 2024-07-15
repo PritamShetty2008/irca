@@ -1,0 +1,63 @@
+
+
+.main_heading{
+    padding:20px;
+    background-color:#3498db;
+    color:white;
+  }
+.container
+{
+    text-align: center;
+}
+ table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    
+ }
+ th, td {
+    border: 1px solid grey;
+    padding: 8px;
+    text-align: center;
+    
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  select {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  .serial-number {
+    font-weight: bold;
+  }
+
+  .center-container{
+text-align:left;
+
+
+  } 
+  /* Style for buttons */
+button {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    padding: 8px 15px; /* Padding for better appearance */
+    font-size: 16px; /* Font size */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Cursor on hover */
+    margin-top: 5px;
+    margin-left: 30px;
+  }
+  
+  /* Style for buttons on hover */
+  button:hover {
+    background-color: #45a049;
+  }
+
+
+
+
+ 

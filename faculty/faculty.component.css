@@ -1,0 +1,57 @@
+/* your-component.component.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 50px;
+  margin-top: 60px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.patient-list {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.go-back-button {
+  background-color: #adaeaf;
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.go-back-button:hover {
+  background-color: #dcdfe2;
+}
+
+.add-patient-button {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.search-patients-button {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.add-patient-button:hover,
+.search-patients-button:hover {
+  background-color: #3fadf7;
+}

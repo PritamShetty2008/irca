@@ -1,0 +1,77 @@
+/* Reset some default styles */
+body, h1, h2, p, table {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Apply a gentle background color to the body */
+  body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style the table */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style the table header */
+  th {
+    background-color: #3498db;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    /* width: 100px; */
+  }
+  
+  /* Style the table rows */
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #ecf0f1;
+  }
+  
+  /* Alternate row background color */
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Style the select dropdowns */
+  select {
+    padding: 8px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  /* Style the input fields */
+  input {
+    padding: 8px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  /* Additional styling for the first column with bold text */
+  td:first-child {
+    font-weight: bold;
+  }
+  
+  /* Apply hover effect on table rows */
+  tr:hover {
+    background-color: #ebf5fb;
+  }
+
+
+  .main_heading{
+    padding:20px;
+    background-color:#3498db;
+    color:white;
+  }

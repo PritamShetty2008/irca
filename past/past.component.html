@@ -1,0 +1,119 @@
+<div class="color">
+  <h1 class="main_heading" style="text-align: center">
+    Past Treatment History
+  </h1>
+
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>sl_no</th>
+          <th>Name</th>
+          <th>P_ID</th>
+          <th>Year</th>
+          <th>Place of Treatment</th>
+          <th>Sobriety Period</th>
+          <th>Treatment Period</th>
+          <th>Reason of Relapse</th>
+          <th>Reason of Sobriety</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of treatmentRecords; let i = index">
+          <td>{{ record.serialNumber }}</td>
+          <td><input [(ngModel)]="record.name" /></td>
+          <td><input [(ngModel)]="record.pId" /></td>
+          <td>
+            <select [(ngModel)]="record.year">
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+              <option value="2013">2013</option>
+              <option value="2012">2012</option>
+              <option value="2011">2011</option>
+              <option value="2010">2010</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="record.placeOfTreatment">
+              <option value="hubli">Hubli</option>
+              <option value="belgaum">Belgaum</option>
+              <option value="Bangalore">Bangalore</option>
+              <option value="Dharwad">Dharwad</option>
+              <option value="Davangere">Davangere</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="record.sobrietyPeriod">
+              <option value="less than 1 month">less than 1 month</option>
+              <option value="1 month">1 month</option>
+              <option value="2 months">2 months</option>
+              <option value="3 months">3 months</option>
+              <option value="4 months">4 months</option>
+              <option value="5 months">5 months</option>
+              <option value="6 months">6 months</option>
+              <option value="7 months">7 months</option>
+              <option value="8 months">8 months</option>
+              <option value="9 months">9 months</option>
+              <option value="10 months">10 month</option>
+              <option value="11 months">11 months</option>
+              <option value="12months">12 months</option>
+              <option value="more than 12 months">more than 12 months</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="record.treatmentPeriod">
+              <option value="less than 1 month">less than 1 month</option>
+              <option value="1 month">1 month</option>
+              <option value="2 months">2 months</option>
+              <option value="3 months">3 months</option>
+              <option value="4 months">4 months</option>
+              <option value="5 months">5 months</option>
+              <option value="6 months">6 months</option>
+              <option value="7 months">7 months</option>
+              <option value="8 months">8 months</option>
+              <option value="9 months">9 months</option>
+              <option value="10 months">10 month</option>
+              <option value="11 months">11 months</option>
+              <option value="12months">12 months</option>
+              <option value="more than 12 months">more than 12 months</option>
+            </select>
+          </td>
+
+          <td>
+            <select [(ngModel)]="record.reasonOfRelapse">
+              <option value="Stress">Stress</option>
+              <option value="Family tension">Family tension</option>
+              <option value="Work related tension">Work related tension</option>
+              <option value="Peer pressure">Peer presure</option>
+              <option value="Depression">Depression</option>
+              <option value="Weak will power">Weak will power</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="record.reasonOfSobriety">
+              <option value="Family">Family</option>
+              <option value="Work">Work</option>
+              <option value="Health">Health</option>
+              <option value="Financial problem">Financial problem</option>
+              <option value="Lifestyle">Lifestyle</option>
+            </select>
+          </td>
+          <td>
+            <button (click)="deleteRow(i)">Delete Row</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <button (click)="addRow()">Add Row</button>
+    <button (click)="submitForm()">Save to File</button>
+  </div>
+</div>
